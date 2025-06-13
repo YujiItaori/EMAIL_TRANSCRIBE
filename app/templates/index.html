@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Automation Pro</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📧 Email Automation Pro</h1>
+      <p>Create and send beautiful email campaigns with ease</p>
+    </div>
+
+    <div class="main-card">
+      <form action="/" method="post" enctype="multipart/form-data">
+        <div class="form-section">
+          <h2 class="section-title">Upload Recipients</h2>
+          <div class="input-group">
+            <label class="input-label">Upload Email List (CSV format)</label>
+            <div class="file-upload">
+              <input type="file" name="file" accept=".csv">
+              <div class="file-upload-icon">📁</div>
+              <div class="file-upload-text">Drop your CSV file here or click to browse</div>
+              <div class="file-upload-hint">Supports CSV files with email addresses</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider">
+          <span>OR</span>
+        </div>
+
+        <div class="form-section">
+          <h2 class="section-title">Manual Entry</h2>
+          <div class="input-group">
+            <label class="input-label">Enter Email Addresses</label>
+            <textarea 
+              name="emails" 
+              class="textarea" 
+              placeholder="Enter email addresses separated by commas&#10;Example: john@example.com, jane@doe.com, alex@company.org"
+            ></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          🚀 Launch Email Campaign
+        </button>
+      </form>
+    </div>
+
+    {% if result_emails %}
+    <div class="results-section">
+      <div class="results-header">
+        <h2 class="results-title">📬 Sent Emails Preview</h2>
+        <p class="results-subtitle">Here's how your emails look</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">{{ result_emails|length }}</div>
+          <div class="stat-label">Emails Generated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Ready</div>
+          <div class="stat-label">Status</div>
+        </div>
+      </div>
+
+      {% for item in result_emails %}
+      <div class="email-preview">
+        <div class="email-recipient">
+          <div class="recipient-icon">@</div>
+          <strong>To: {{ item.to }}</strong>
+        </div>
+        <div class="email-content">
+          {{ item.html | safe }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+    // File upload interaction
+    const fileUpload = document.querySelector('.file-upload');
+    const fileInput = document.querySelector('input[type="file"]');
+
+    fileInput.addEventListener('change', function(e) {
+      const fileName = e.target.files[0]?.name;
+      if (fileName) {
+        fileUpload.querySelector('.file-upload-text').textContent = `Selected: ${fileName}`;
+        fileUpload.style.borderColor = '#667eea';
+        fileUpload.style.background = 'linear-gradient(135deg, #ebf8ff, #e6fffa)';
+      }
+    });
+
+    // Form submission animation
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const submitBtn = document.querySelector('.submit-btn');
+      submitBtn.innerHTML = '⏳ Processing Campaign...';
+      submitBtn.style.background = 'linear-gradient(135deg, #a0aec0, #718096)';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Web framework
+flask
+
+# File handling (CSV, Excel)
+pandas
+openpyxl
+
+# Web scraping
+requests
+beautifulsoup4
+selenium
+lxml
+
+# HTML email generation
+jinja2
+
+# NLP and name formatting
+regex
+nameparser
+
+# LLM API integration
+httpx  # Or use requests if preferred
+
+# SMTP Email Delivery
+email-validator
+
+# Optional: For handling environment variables
+python-dotenv
+
+# For parsing and summarizing HTML
+html5lib
+
+# Optional: If running headless Selenium
+webdriver-manager
+
+# Optional: To run background tasks or async processing
+celery
