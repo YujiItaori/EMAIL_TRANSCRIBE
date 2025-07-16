@@ -186,7 +186,9 @@ GitHub Profile → https://github.com/YujiItaori
 
 ⭐ **Star this repository if you find it helpful!** ⭐
 
+"I see email being used, by and large, exactly the way I envisioned. In particular, it's not strictly a work tool or strictly a personal thing. Everybody uses it in different ways, but they use it in a way they find works for them." - Ray Tomlinson
 
+---
 
 ![Screenshot 2025-06-13 085940](https://github.com/user-attachments/assets/50e3dedc-2201-419d-8b33-dd09d79c9a78)
 ![Screenshot 2025-06-13 090004](https://github.com/user-attachments/assets/cb55da37-ea20-47a8-bbc9-dee73cbe5ec1)
